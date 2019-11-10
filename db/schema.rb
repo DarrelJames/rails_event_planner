@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_045515) do
+ActiveRecord::Schema.define(version: 2019_11_10_060240) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "venue_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["venue_id"], name: "index_events_on_venue_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_guests_on_user_id"
+  end
+
+  create_table "rsvps", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "guest_id", null: false
+    t.boolean "response"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_rsvps_on_event_id"
+    t.index ["guest_id"], name: "index_rsvps_on_guest_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,4 +58,18 @@ ActiveRecord::Schema.define(version: 2019_11_10_045515) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venues", force: :cascade do |t|
+    t.string "name"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "events", "venues"
+  add_foreign_key "guests", "users"
+  add_foreign_key "rsvps", "events"
+  add_foreign_key "rsvps", "guests"
 end
