@@ -1,0 +1,27 @@
+<%= form_for @event do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :date %><br>
+    <%= f.date_field :date %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br>
+    <%= f.time_select :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %><br>
+    <%= f.time_select :end_time %>
+  </p>
+
+  <%= fields_for :venue do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <% end %>
+<%= f.submit %>
+<% end %>
