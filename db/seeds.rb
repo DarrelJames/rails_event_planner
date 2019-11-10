@@ -15,9 +15,10 @@ puts "Created #{User.count} Users"
 end
 puts "Created #{Venue.count} Venues"
 
-user_id_num = Faker::Number.between(from: User.first.id, to: User.last.id)
-venue_id_num = Faker::Number.between(from: Venue.first.id, to: Venue.last.id)
+
 10.times do
+  user_id_num = Faker::Number.between(from: User.first.id, to: User.last.id)
+  venue_id_num = Faker::Number.between(from: Venue.first.id, to: Venue.last.id)
   Event.create(user_id: user_id_num, venue_id: venue_id_num, name: Faker::Educator.unique.course_name, date: Faker::Date.forward(days: 50), start_time: Faker::Time.forward(days: 23, period: :morning) , end_time: Faker::Time.forward(days: 23, period: :morning))
 end
 
