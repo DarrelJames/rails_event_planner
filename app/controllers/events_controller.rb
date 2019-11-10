@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+
 
   def new
     @event = Event.new(start_time: Time.now, end_time: Time.now)
@@ -14,9 +16,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.create(event_params)
+    @event = current_user.events.build(event_params)
 
-    redirect_to event_path(@event)
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
   def edit
