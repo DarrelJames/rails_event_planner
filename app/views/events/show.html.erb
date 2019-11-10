@@ -1,2 +1,19 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1><%= @event.name %></h1>
+<p><strong>When:</strong> <%= @event.date.strftime("%A %B %e, %Y") %></p>
+<p><strong>AT</strong> <%= @event.start_time.strftime("%I:%M %P") %></p>
+
+
+
+
+  <!-- create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "venue_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
+  end -->
