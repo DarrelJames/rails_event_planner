@@ -14,9 +14,16 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
+    @event = current_user.events.create(event_params)
 
     redirect_to event_path(@event)
+  end
+
+  def edit
+  end
+
+  def update
+    
   end
 
   private
@@ -26,6 +33,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :date, :start_time, :end_time)
+    params.require(:event).permit(:name, :date, :start_time, :end_time, venue_attributes: [:name, :street, :city, :state, :zip_code])
   end
 end

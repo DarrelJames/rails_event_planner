@@ -1,6 +1,6 @@
 <%= form_for @event do |f| %>
   <p>
-    <%= f.label :name %><br>
+    <%= f.label :name, 'Event Name' %><br>
     <%= f.text_field :name %>
   </p>
 
@@ -16,12 +16,31 @@
     <%= f.label :end_time %><br>
     <%= f.time_select :end_time %>
   </p>
+<fieldset>
 
-  <%= fields_for :venue do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<legend>Venue</legend>
+  <%= f.fields_for :venue do |form| %>
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </p>
+    <p>
+      <%= form.label :street %><br>
+      <%= form.text_field :street %>
+    </p>
+    <p>
+      <%= form.label :city %><br>
+      <%= form.text_field :city %>
+    </p>
+    <p>
+      <%= form.label :state %><br>
+      <%= form.text_field :state %>
+    </p>
+    <p>
+      <%= form.label :zip_code %><br>
+      <%= form.text_field :zip_code %>
+    </p>
   <% end %>
+  </fieldset>
 <%= f.submit %>
 <% end %>
