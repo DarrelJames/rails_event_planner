@@ -12,8 +12,48 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div id="page"
+    <nav class="fh5co-nav" >
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-2"
+            <div id="fh5co-logo">
+              <a href="index.html">Wedding<strong>.</strong></a></div>
+              <ul class="nav navbar-nav navbar linear-nav">
+                <li><%= link_to content_tag(:span, "Events"),events_path %></li>
+                <li><%= link_to content_tag(:span, "Guests"),guests_path %></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image: url(/assets/images/img_bg_2.jpg); background-position: 0px 0px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box fadeIn animated-fast" data-animate-effect="fadeIn">
+							<h1>Joefrey &amp; Sheila</h1>
+							<h2>We Are Getting Married</h2>
 
-    <%= yield %>
-    
+							<p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+    <div class="container">
+      <div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+					  <%= yield %>
+					</div>
+				</div>
+			</div>
+    </div>
+  </div>
+
   </body>
 </html>
