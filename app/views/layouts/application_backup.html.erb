@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EventPlannerRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//fonts.googleapis.com/css?family=Roboto:100i,400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
+  </head>
+
+  <body>
+      <!-- banner -->
+      <div class="inner-banner">
+        <!-- header -->
+          <header>
+  	<nav class="mnu navbar-light">
+              <div class="logo" id="logo">
+                  <h1><a href="index.html">W-Planner</a></h1>
+              </div>
+  				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+                  <input type="checkbox" id="drop">
+                      <ul class="menu">
+                          <li><a href="index.html">Home</a></li>
+  						<li class="active"><a href="about.html">About</a></li>
+  						<li>
+                              <!-- First Tier Drop Down -->
+                              <label for="drop-2" class="toggle">Drop Down <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                              <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                              <input type="checkbox" id="drop-2">
+                              <ul>
+                                <li><a href="services.html">Services</a>
+  							  </li>
+
+                                  <li><a href="gallery.html">Gallery</a>
+                                  </li>
+                              </ul>
+                          </li>
+
+                          <li><a href="contact.html">Contact Us</a></li>
+                      </ul>
+      </nav>
+  </header>
+  <!-- //header -->
+
+      </div>
+  	<ol class="breadcrumb">
+          <li class="breadcrumb-item">
+              <a href="index.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active">About</li>
+      </ol>
+  	 <!-- //banner-text -->
+  	 <section class="banner_bottom1 py-md-5">
+  		<div class="container py-4 mt-2">
+  			<h3 class="heading-agileinfo text-center">About  <span>Us</span></h3>
+  			<div class="inner_sec_info_wthree_agile mt-md-5 pt-3">
+  				<div class="row help_full">
+  					<div class="col-lg-6 banner_bottom_grid help">
+  						<img src="/assets/g1.jpg" alt=" " class="img-fluid">
+  					</div>
+  					<div class="col-lg-6 banner_bottom_left1">
+  						<h4>Lorem Ipsum convallis diam</h4>
+  						<p>Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+  							pulvinar neque pharetra ac.</p>
+  						<p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+  							pulvinar neque pharetra ac.Nullal condimentum interdum vel eget enim. Curabitur mattis orci sed le. Nullal condimentum interdum vel eget enim. Curabitur mattis orci sed le.</p>
+  						</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+  <!--/newsletter-->
+      <footer class="newsletter_right pymd-5 py-4" id="footer">
+          <div class="container">
+              <div class="inner-sec py-md-5 py-3">
+                  <div class="row mb-md-4 mb-md-3">
+  					<div class="col-lg-3 col-md-6 social-info text-left">
+                         <h3 class="tittle1 foot mb-md-5 mb-4 text-white">Get in touch</h3>
+  						<p>0926k 4th block building,king Avenue, </p>
+  						<p class="my-2"> New York City,USA</p>
+  						<p class="phone">phone: +0444 555 6789</p>
+  						<p class="phone my-2">Fax: +0444 555 6789</p>
+  						<p class="phone">Mail:
+  							<a href="mailto:info@example.com">info@example.com</a>
+  						</p>
+
+                      </div>
+  					<div class="col-lg-3 col-md-6 social-info text-left">
+  					 <h3 class="tittle1 foot mb-md-5 mb-4 text-white">About Us</h3>
+                         <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus.
+  						Nulla porttitor accumsana tincidunt. Vestibulum ante ipsum primis tempus convallis.</p>
+
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </footer>
+  	<div class="copyright py-3">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-md-8">
+  					<p class="copy-right mt-2">© 2019 Wedding Planner. All Rights Reserved | Design by
+  						<a href="http://w3layouts.com/"> W3layouts </a>
+  					</p>
+  				</div>
+  				<div class="col-md-4">
+  					
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+      <!--//newsletter-->
+
+
+  </body>
+</html>
+<%= yield %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
