@@ -1,4 +1,5 @@
 <%= form_for @guest do |f| %>
+<%= render partial: "devise/shared/error_messages", locals: { resource: @guest } %>
   <div class="form-row">
     <div class="form-group col-md-6">
     <%= f.text_field :first_name, {class: "form-control", placeholder: "First Name"} %>
@@ -48,7 +49,7 @@
   </div>
 
   <div>
-    <br>  
+    <br>
     <%= f.submit class: "btn btn-primary" %>
   </div>
 
