@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'static#index'
   resources :guests
-  resources :events
+  resources :events do
+    resources :rsvps
+  end
   resources :venues
-  resources :rsvps
+
 end
