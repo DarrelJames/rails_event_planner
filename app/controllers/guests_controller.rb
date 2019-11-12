@@ -1,6 +1,7 @@
 class GuestsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   def new
     @guest = Guest.new
   end
@@ -13,7 +14,7 @@ class GuestsController < ApplicationController
   end
 
   def index
-    @guests = Guest.all
+    @guests = current_user.guests
   end
 
   def create

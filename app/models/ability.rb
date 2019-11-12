@@ -8,7 +8,8 @@ class Ability
 
     if user.present?
       can :manage, Event, user_id: user.id
-      
+      can :manage, Guest, user_id: user.id
+
     end
 
     # Define abilities for the passed in user here. For example:
