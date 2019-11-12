@@ -37,6 +37,19 @@
 
   </div>
 
-  <%= f.submit class: "btn btn-primary" %>
+  <div class="form-check form-check-inline">
+    <fieldset>
+      <legend>Events</legend>
+      <%= f.collection_check_boxes(:event_ids, current_user.events, :id, :name) do |b| %>
+        <%= b.label(class: "form-check-label") %>
+        <%= b.check_box(class: "form-check-input") %>
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div>
+    <br>  
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
 
 <% end %>
