@@ -2,13 +2,13 @@
 <%= link_to "Add Guest", new_guest_path %>
 
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Mailing Address</th>
-      <th></th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mailing Address</th>
+      <th scope="col"></th>
     </tr>
   </thead>
 
@@ -16,7 +16,7 @@
     <% @guests.each do |guest| %>
 
       <tr>
-        <td><%= guest.full_name %></td>
+        <th schope="row"><%= guest.full_name %></th>
         <td></td>
         <td>
           <address>
