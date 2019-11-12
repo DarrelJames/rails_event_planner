@@ -19,7 +19,6 @@ class GuestsController < ApplicationController
 
   def create
     @guest = current_user.guests.build(guest_params)
-    binding.pry
     if @guest.save
       redirect_to guests_path
     else
