@@ -28,11 +28,16 @@ class GuestsController < ApplicationController
 
   def update
     if @guest.update(guest_params)
-      redirect_to @guest
+      redirect_to guests_path
     else
       render :edit
     end
 
+  end
+
+  def destroy
+    @guest.destroy
+    redirect_to guests_path
   end
   private
 
