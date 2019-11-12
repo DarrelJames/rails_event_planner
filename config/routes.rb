@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :guests
   resources :events
   resources :venues
+  resources :rsvps
 end
