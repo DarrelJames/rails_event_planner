@@ -1,6 +1,6 @@
 class Guest < ApplicationRecord
   belongs_to :user
-  has_many :rsvps
+  has_many :rsvps, :dependent => :delete_all
   has_many :events, through: :rsvps
 
   def full_name
