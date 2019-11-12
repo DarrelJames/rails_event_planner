@@ -1,0 +1,23 @@
+<% if session[:guest_id] %>
+
+  <%= form_for [@rsvp.event, @rsvp] do |f|%>
+  <%= f.label :response_true, "Will Attend" %>
+    <%= f.radio_button :response, true %>
+  <%= f.label :response_false, "Will Not Attend" %>
+    <%= f.radio_button :response, false %>
+    <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+<% else %>
+<h3>Please enter your first and last name to unlock your RSVP form.</h3>
+<br>  
+ <%= form_tag event_rsvps_path do %>
+ <div class="input-group">
+   <div class="input-group-prepend">
+     <span class="input-group-text">First and last name</span>
+   </div>
+   <%= text_field_tag :first_name,nil, class: "form-control" %>
+   <%= text_field_tag :last_name,nil, class: "form-control" %>
+   <%= submit_tag 'Continue', class: "btn btn-outline-secondary" %>
+ </div>
+<% end %>
+<% end %>
