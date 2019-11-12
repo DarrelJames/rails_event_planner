@@ -1,1 +1,41 @@
+<h1>All Guest</h1>
 <%= link_to "Add Guest", new_guest_path %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mailing Address</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guests.each do |guest| %>
+
+      <tr>
+        <td><%= guest.full_name %></td>
+        <td></td>
+        <td>
+          <address>
+            <%= guest.street %>
+            <%= guest.address2 %>
+            <%= guest.city %>, <%= guest.state %> <%= guest.zip_code %>
+          </address>
+        </td>
+        <td>
+          <%= link_to edit_guest_path(guest) do %>
+          <%= fa_icon "edit" %>
+          <% end %>
+          <%= link_to guest_path(guest), method: :delete do %>
+          <%= fa_icon "trash" %>
+          <% end %>
+
+        </td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
