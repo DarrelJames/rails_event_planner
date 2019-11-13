@@ -68,7 +68,11 @@
               </a>
             </p>
           </div>
-          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <% if user_signed_in? %>
+            <p class="copy-right mt-2"><%= link_to "Manage", edit_event_path(@event) %></p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
