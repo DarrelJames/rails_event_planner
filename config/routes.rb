@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'static#index'
   resources :guests
   resources :events do
-    resources :rsvps
+    resources :rsvps, only: [:update, :index, :create]
+    resources :guests, shallow: true
   end
-  resources :venues
+  resources :venues, only: [:show]
 
 end
