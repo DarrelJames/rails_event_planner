@@ -1,8 +1,10 @@
-<h1>All Guest</h1>
+<%= display_guest_header(@event) %>
+
 <%= form_tag("/guests", method: "get") do %>
-  <%= select_tag :event_id, options_from_collection_for_select(current_user.events, "id", "name"), prompt: "Filter By Event" %>   
+  <%= select_tag :event_id, options_from_collection_for_select(current_user.events, "id", "name"), prompt: "Filter By Event" %>
   <%= submit_tag "Filter" %>
 <% end %>
+
 <%= link_to "Add Guest", new_guest_path %>
 
 
