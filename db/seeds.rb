@@ -43,3 +43,11 @@ User.all.each do |user|
 
   puts "Create #{user.guests.count} guests for User#{user.id}"
 end
+
+Guest.all.each do |guest|
+  guest.rsvps.each do |rsvp|
+    
+    rsvp.response = Faker::Boolean.boolean
+    rsvp.save
+  end
+end
