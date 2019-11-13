@@ -1,5 +1,7 @@
 <% if session[:guest_id] %>
 
+  <%= display_instructions(@rsvp) %>
+  
   <%= form_for [@rsvp.event, @rsvp] do |f|%>
   <%= f.label :response_true, "Will Attend" %>
     <%= f.radio_button :response, true %>
@@ -9,7 +11,7 @@
   <% end %>
 <% else %>
 <h3>Please enter your first and last name to unlock your RSVP form.</h3>
-<br>  
+<br>
  <%= form_tag event_rsvps_path do %>
  <div class="input-group">
    <div class="input-group-prepend">

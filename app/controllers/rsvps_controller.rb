@@ -5,9 +5,13 @@ class RsvpsController < ApplicationController
   end
 
   def update
-
-    @rsvp.update(rsvp_params)
-    redirect_to event_rsvps_path
+    if @rsvp.update(rsvp_params)
+      flash[:message] = "Thank you for your response!"
+      redirect_to event_rsvps_path
+    else
+      flash[:message] = "Something went wrong"
+      redirect_to event_rsvps_path
+    end
   end
 
   def create
