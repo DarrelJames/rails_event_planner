@@ -1,47 +1,52 @@
 <%= form_for @event do |f| %>
 <%= render partial: "devise/shared/error_messages", locals: { resource: @event } %>
-  <p>
-    <%= f.label :name, 'Event Name' %><br>
-    <%= f.text_field :name %>
-  </p>
+<div class="form-group">
+  <%= f.label :name, 'Event Name' %><br>
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
 
-  <p>
-    <%= f.label :date %><br>
-    <%= f.date_field :date %>
-  </p>
-  <p>
-    <%= f.label :start_time %><br>
-    <%= f.time_select :start_time %>
-  </p>
-  <p>
-    <%= f.label :end_time %><br>
-    <%= f.time_select :end_time %>
-  </p>
+<div class="form-group row ">
+  <%= f.label :date, class: 'col-1 col-form-label' %>
+  <div class="col-md-3">
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+  <%= f.label :start_time, class: 'col-auto col-form-label' %>
+  <div class="col-md-2">
+    <%= f.time_select :start_time, class: 'form-control' %>
+  </div>
+
+  <%= f.label :end_time, class: 'col-1 col-form-label' %>
+  <div class="col-sm-2">
+    <%= f.time_select :end_time, class: 'form-control' %>
+  </div>
+</div>
 <fieldset>
 
-<legend>Venue</legend>
+  <legend>Venue</legend>
   <%= f.fields_for :venue do |form| %>
-    <p>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
-    </p>
-    <p>
-      <%= form.label :street %><br>
-      <%= form.text_field :street %>
-    </p>
-    <p>
-      <%= form.label :city %><br>
-      <%= form.text_field :city %>
-    </p>
-    <p>
-      <%= form.label :state %><br>
-      <%= form.text_field :state %>
-    </p>
-    <p>
-      <%= form.label :zip_code %><br>
-      <%= form.text_field :zip_code %>
-    </p>
-  <% end %>
-  </fieldset>
+  <div class="form-group">
+    <%= form.label :street, "Address" %>
+    <%= form.text_field :street, {class: "form-control", placeholder: "1234 Main St"} %>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :city %>
+      <%= form.text_field :city, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= form.label :state %>
+      <%= form.text_field :state, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= form.label :zip_code %>
+      <%= form.text_field :zip_code, class: "form-control" %>
+    </div>
+
+  </div>
+<% end %>
+</fieldset>
 <%= f.submit %>
 <% end %>
