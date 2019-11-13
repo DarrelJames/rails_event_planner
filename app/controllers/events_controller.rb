@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    render 'show', layout: 'special'
   end
 
   def index

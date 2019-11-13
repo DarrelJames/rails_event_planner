@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
   before_action :authenticate_user!
   def new
     if event_exists?
-      @guest = @event.guests.build
+      @guest = @event.guests.build    
     else
       @guest = Guest.new
     end

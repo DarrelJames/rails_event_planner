@@ -1,7 +1,11 @@
 class RsvpsController < ApplicationController
   before_action :set_rsvp, only: [:index, :update]
   def index
+     @event = Event.find_by_id(params[:event_id])
+      render 'index', layout: 'special'
 
+
+    
   end
 
   def update
