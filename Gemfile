@@ -38,7 +38,6 @@ gem 'dotenv-rails'
 
 gem 'omniauth-facebook'
 gem 'omniauth-github'
-gem 'omniauth-google'
 end
 
 group :development do
