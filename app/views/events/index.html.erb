@@ -1,9 +1,44 @@
 <h1>Your Events</h1>
 
-<ul class="list-unstyled">
-<% @events.each do |event| %>
-  <li><%= link_to event.name, event_path(event) %></li>
-<% end %>
-</ul>
-
 <%= link_to "Add Event", new_event_path %>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Venue</th>
+      <th scope="col">Address</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+
+      <tr>
+        <th schope="row"><%= link_to event.name, event_path(event) %></th>
+        <td><%= event.date %></td>
+        <td><%= event.venue.name %></td>
+        <td>
+          <address>
+            <%= event.venue.street %>
+            <%= event.venue.city %>, <%= event.venue.state %> <%= event.venue.zip_code %>
+          </address>
+        </td>
+        <td>
+          <%= link_to new_event_guest_path(event) do %>
+          <%= fa_icon "user-plus", title: "Add Guest" %>
+          <% end %>
+          <%= link_to edit_event_path(event) do %>
+          <%= fa_icon "edit", title: "Edit Event" %>
+          <% end %>
+          <%= link_to event_path(event), method: :delete do %>
+          <%= fa_icon "trash", title: "Delete Event" %>
+          <% end %>
+
+        </td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
