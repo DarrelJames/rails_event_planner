@@ -1,11 +1,11 @@
 class RsvpsController < ApplicationController
-
+  before_action :set_rsvp, only: [:index, :update]
   def index
-    @rsvp = Rsvp.find_by(guest_id: session[:guest_id], event_id: params[:event_id])
+
   end
 
   def update
-    @rsvp = Rsvp.find_by(guest_id: session[:guest_id], event_id: params[:event_id])
+
     @rsvp.update(rsvp_params)
     redirect_to event_rsvps_path
   end
@@ -17,7 +17,7 @@ class RsvpsController < ApplicationController
     if @guest
 
       session[:guest_id] = @guest.id
-      @rsvp = Rsvp.find_by(guest_id: @guest.id, event_id: @event.id)
+      @rsvp = set_rsvp
 
       redirect_to event_rsvps_path
     else
@@ -31,5 +31,9 @@ class RsvpsController < ApplicationController
 
   def rsvp_params
     params.require(:rsvp).permit(:response)
+  end
+
+  def set_rsvp
+    @rsvp = Rsvp.find_by(guest_id: session[:guest_id], event_id: params[:event_id])
   end
 end
