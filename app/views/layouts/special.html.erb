@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EventPlannerRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'special', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//fonts.googleapis.com/css?family=Roboto:100i,400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- banner -->
+    <div class="inner-banner">
+      <!-- header -->
+      <header>
+        <nav class="mnu navbar-light">
+          <div class="logo" id="logo">
+            <h1>
+              <a href="index.html"><%= @event.name %></a>
+            </h1>
+          </div>
+          <label for="drop" class="toggle">
+            <span class="fa fa-bars"></span></label>
+          <input type="checkbox" id="drop">
+          <ul class="menu">
+            <li>
+              <%= link_to 'Home', event_path(@event) %>
+            </li>
+            <li class="active">
+              <%= link_to "RSVP", event_rsvps_path(@event) %>
+            </li>
+            <li>
+              <a href="contact.html"><%#= link_to 'Venue', event_venue_path(@event) %></a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- //header -->
+
+    </div>
+    <div class="breadcrumb">
+
+    </div>
+    <!-- //banner-text -->
+    <section class="banner_bottom1 py-md-5">
+      <div class="container py-4 mt-2">
+        <%= yield %>
+      </div>
+    </section>
+
+    <!--/newsletter-->
+    <footer class="newsletter_right pymd-5 py-4" id="footer">
+      <div class="container">
+
+      </div>
+    </footer>
+    <div class="copyright py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <p class="copy-right mt-2">© 2019 Wedding Planner. All Rights Reserved | Design by
+              <a href="http://w3layouts.com/">
+                W3layouts
+              </a>
+            </p>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+    <!--//newsletter-->
+
+  </body>
+</html>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
