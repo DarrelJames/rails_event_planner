@@ -3,11 +3,7 @@ class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   def new
-    if event_exists?
-      @guest = @event.guests.build    
-    else
       @guest = Guest.new
-    end
   end
 
   def edit
@@ -18,11 +14,7 @@ class GuestsController < ApplicationController
   end
 
   def index
-    if event_exists?
-      @guests = Guest.by_event(@event).alpha
-    else
-      @guests = current_user.guests.alpha
-    end
+    @guests = current_user.guests.alpha
   end
 
   def create
@@ -51,10 +43,6 @@ class GuestsController < ApplicationController
 
   def set_guest
     @guest = Guest.find_by_id(params[:id])
-  end
-
-  def event_exists?
-    @event = Event.find_by_id(params[:event_id])
   end
 
   def guest_params
