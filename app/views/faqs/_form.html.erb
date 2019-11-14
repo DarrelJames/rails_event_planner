@@ -1,0 +1,10 @@
+<%= form_for [@event, @faq] do |f| %>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Question and Answer</span>
+  </div>
+  <%= f.text_field :question, class: "form-control", placeholder: 'When should I RSVP by?' %>
+  <%= f.text_field  :answer, class: "form-control", placeholder: 'Date' %>
+  <%= f.submit class: "btn btn-outline-secondary" %>
+</div>
+<% end %>
