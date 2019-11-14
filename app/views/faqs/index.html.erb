@@ -1,2 +1,13 @@
-<h1>Faqs#index</h1>
-<p>Find me in app/views/faqs/index.html.erb</p>
+<% @faqs.each do |faq| %>
+  <div class="row text-center">
+    <div class="col-3">
+
+    </div>
+    <div class="col-4">
+      <%= faq.question %>
+    </div>
+    <div class="col-2">
+      <%= faq.answer %>
+    </div>
+  </div>
+<% end %>
