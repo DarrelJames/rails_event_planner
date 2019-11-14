@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :rsvps
+  has_many :rsvps, dependent: :destroy
   has_many :guests, through: :rsvps
   has_many :faqs
   belongs_to :venue
