@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to event_path(@event)
+      redirect_to events_path
     else
       render :new
     end
