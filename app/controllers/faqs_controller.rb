@@ -1,25 +1,44 @@
 class FaqsController < ApplicationController
-  before_action [:set_faq, :set_event], only: [:edit, :update, :destroy, :index]
+  load_and_authorize_resource
+  before_action :authenticate_user!
+  before_action :set_faq, only: [:edit, :destroy, :update]
+  before_action :set_event
 
   def new
+    @faq = @event.faqs.build
   end
 
   def create
-    raise params.inspect
+    @faq = @event.faqs.build(faq_params)
+    @faq.user = current_user
+
+    if @faq.save
+      redirect_to event_faqs_path
+    else
+      render :new
+    end
   end
 
   def index
     @faqs = @event.faqs
+    render 'index', layout: 'special'
   end
 
   def edit
   end
 
   def update
+    if @faq.update(faq_params)
+      redirect_to events_path
+    else
+      render :edit
+    end
+
   end
 
   def destroy
-    # code
+    @faq.destroy
+    redirect_to events_path(@event)
   end
 
   private
@@ -33,6 +52,6 @@ class FaqsController < ApplicationController
   end
 
   def faq_params
-    params.require(:faq).permit(:question, :answer)
+    params.require(:faq).permit(:question, :answer, :event_id)
   end
 end
