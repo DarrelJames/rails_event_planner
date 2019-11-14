@@ -5,7 +5,7 @@ class RsvpsController < ApplicationController
       render 'index', layout: 'special'
 
 
-    
+
   end
 
   def update
@@ -20,9 +20,9 @@ class RsvpsController < ApplicationController
 
   def create
     @event = Event.find_by_id(params[:event_id])
-    @guest = @event.guests.find_by(first_name: params[:first_name], last_name: params[:last_name])
+    @guest = @event.guests.full_name_nocase(params[:first_name], params[:last_name])
 
-    if @guest
+    if @guest.present?
 
       session[:guest_id] = @guest.id
       @rsvp = set_rsvp
