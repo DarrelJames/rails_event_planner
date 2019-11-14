@@ -20,7 +20,7 @@
         <nav class="mnu navbar-light">
           <div class="logo" id="logo">
             <h1>
-              <a href="index.html"><%= @event.name %></a>
+              <%= link_to @event.name, event_path(@event) %>
             </h1>
           </div>
           <label for="drop" class="toggle">
