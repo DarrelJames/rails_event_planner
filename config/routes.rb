@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :guests
   resources :events do
     resources :rsvps, only: [:update, :index, :create]
-    resources :guests, shallow: true
+    resources :faqs
     resources :venues, only: [:show]
   end
 

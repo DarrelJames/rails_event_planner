@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :rsvps
   has_many :guests, through: :rsvps
+  has_many :faqs
   belongs_to :venue
 
   validates :name, :date, :start_time, :end_time, presence: true
