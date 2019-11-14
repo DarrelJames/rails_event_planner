@@ -14,7 +14,11 @@ class GuestsController < ApplicationController
   end
 
   def index
-    @guests = current_user.guests.alpha
+    if @event = Event.find_by_id(params[:event_id])
+      @guests = @event.guests.alpha
+    else
+      @guests = current_user.guests.alpha
+    end
   end
 
   def create
