@@ -1,24 +1,38 @@
-# README
+# Event Planner
+Event Planner is a webapp built on Rails that allows a user to generate an Event Website.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+User Creates an account
 
-Things you may want to cover:
+User then is able CRUD events, guests, venues.
 
-* Ruby version
+Guest can view event page where they can RSVP to the event.
+# Installation
 
-* System dependencies
+Clone the github repository
 
-* Configuration
+Install all required gems: `bundle install`
 
-* Database creation
+Migrate the database: `rake db:migrate`
 
-* Database initialization
+Seed Database (Optional): `rake db:seed`
 
-* How to run the test suite
+Initiate rails server: `rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+Then visit localhost:3000 to get started!
 
-* Deployment instructions
+If seeded User logins are
 
-* ...
+```
+Email: user1@email.com
+Password: password
+
+Email: user2@email.com
+Password: password
+
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/DarrelJames/event-planner-sinatra. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
