@@ -5,7 +5,10 @@ class Guest < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
+  # scope :full_name_nocase, -> (first_name, last_name)  { where("LOWER(first_name) = ? AND LOWER(last_name) = ?", first_name.downcase, last_name.downcase).first }
+
   def full_name
+
     "#{self.first_name} #{self.last_name}"
   end
 
