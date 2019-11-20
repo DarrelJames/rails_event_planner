@@ -13,7 +13,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = current_user.events
+    if params[:event]
+      @events = Event.by_name(params[:event])
+    else
+      @events = current_user.events
+    end
   end
 
   def create

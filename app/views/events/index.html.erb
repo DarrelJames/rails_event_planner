@@ -1,6 +1,11 @@
 <h1>Your Events</h1>
 
+<%= form_tag("/events", method: "get") do %>
+  <%= text_field_tag 'event'%>
+  <%= submit_tag "Filter" %>
+<% end %>
 <%= link_to "Add Event", new_event_path %>
+
 <table class="table">
   <thead class="thead-light">
     <tr>

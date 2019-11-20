@@ -12,4 +12,8 @@ class Event < ApplicationRecord
       venue = Venue.find_or_create_by(venue_attributes)
       self.venue = venue
   end
+
+  def self.by_name(name)
+    where('name = ?', name)
+  end
 end
